@@ -34,7 +34,7 @@ txhousing %>%
     facet_break(vars(date), breaks = 6)
 ```
 
-![](figs/facet-break.png)
+![](figs/facet-break.PNG)
 
 ### facet_kmeans
 
