@@ -31,3 +31,5 @@ txhousing %>%
     geom_line() +
     facet_break(vars(date), breaks = 6)
 ```
+
+![facet-breaks](figs/facet-break.png)
