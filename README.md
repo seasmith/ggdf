@@ -40,6 +40,8 @@ df %>%
 
 ### facet_break
 
+Breaks a time series chart into multiple facets (one column, many rows).
+
 ```r
 library(ggplot2)
 library(dplyr)
@@ -67,6 +69,8 @@ txhousing %>%
 ![](figs/facet-break.PNG)
 
 ### facet_kmeans
+
+Performs kmeans clustering on two variables; `geom_point()` compliments this facet.
 
 ```r
 # Current Implementation ----------------------------------------------
@@ -98,11 +102,10 @@ kdata_long %>%
 # Idealized Implementation --------------------------------------------
 
 iris %>%
-  ggplot(aes(x = Sepal.Length,
-             y = Petal.Length)) +
+  ggplot(aes(x = Sepal.Length, y = Petal.Length)) +
   geom_point() +
   facet_kmeans(
-    k = 2:4,
+    k = 2:4,  # passed on to kmeans()
     aesthetics = c("color") # or "fill" if pch = 21
     )
 
