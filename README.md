@@ -6,6 +6,7 @@ ggplot2 dream functions
 
 * [Geoms](#geoms)
   * [geom_sf_krige](#geom_sf_krige)
+  * [geom_line_shape/geom_path_shape](#geom_line_shape-geom_path_shape)
 * [Facets](#facets)
   * [facet_break](#facet_break)
   * [facet_kmeans](#facet_kmeans)
@@ -20,7 +21,7 @@ Document functions I have no real intention of implementing but would love to se
 
 Need to read more into variogram modelling before a current and idealized implementation can be fully realized.
 
-```
+```r
 library(ggplot2)
 library(dplyr)
 library(gstat)
@@ -34,6 +35,39 @@ library(gstat)
 df %>%
   ggplot() +
   geom_sf_krige(aes(formula = x ~ y))
+```
+
+### geom_line_shape/geom_path_shape
+
+Inspired by [D3's curve API](https://github.com/d3/d3-shape/blob/v1.3.4/README.md#curves).  Allows user to specify interpolation method (spline, step, step-before, step-after, etc) and closure (do start and end points connect).
+
+```r
+library(ggplot2)
+library(dplyr)
+
+# Current implementation ----------------------------------------------
+# WIP
+
+# Idealized implementation --------------------------------------------
+# WIP
+df %>%
+  ggplot(aes(x, y)) +
+  geom_line_shape(method = "step", args = list(when = "after"))
+  
+# -- OR --
+df %>%
+  ggplot(aes(x, y)) +
+  geom_line_shape(stat = "step_after")
+
+# default stat is "step_middle"
+df %>%
+  ggplot(aes(x, y)) +
+  geom_line_shape()
+
+# connect controls whether to connect start and end point
+df %>%
+  ggplot(aes(x, y)) +
+  geom_line_shape(stat = "xspline", connect = TRUE)
 ```
 
 ## Facets
