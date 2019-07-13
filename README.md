@@ -2,9 +2,39 @@
 
 ggplot2 dream functions
 
+## Table of Contents
+
+* [Geoms](#geoms)
+  * [geom_sf_krige](#geom_sf_krige)
+* [Facets](#facets)
+  * [facet_break](#facet_break)
+  * [facet_kmeans](#facet_kmeans)
+
 ## Intent
 
 Document functions I have no real intention of implementing but would love to see in `ggplot2` or some extension.
+
+## Geoms
+
+### geom_sf_krige
+
+Need to read more into variogram modelling before a current and idealized implementation can be fully realized.
+
+```
+library(ggplot2)
+library(dplyr)
+library(gstat)
+
+# Current implementation ----------------------------------------------
+# WIP
+
+# Idealized implementation --------------------------------------------
+
+# WIP
+df %>%
+  ggplot() +
+  geom_sf_krige(aes(formula = x ~ y))
+```
 
 ## Facets
 
