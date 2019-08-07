@@ -144,6 +144,7 @@ iris %>%
     )
 
 # Also facet_sf_kmeans()...wip
+# Can also extend to dbscan::dbscan, cluster::pam, etc.
 ```
 
 ![](figs/facet-kmeans.png)
