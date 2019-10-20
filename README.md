@@ -5,6 +5,8 @@ ggplot2 dream functions
 ## Table of Contents
 
 * [Geoms](#geoms)
+  * [geom_sf_density](#geom_sf_density)
+  * [geom_sf_binned](#geom_sf_binned)
   * [geom_sf_krige](#geom_sf_krige)
   * [geom_line_shape/geom_path_shape](#geom_line_shape-geom_path_shape)
 * [Facets](#facets)
@@ -16,6 +18,25 @@ ggplot2 dream functions
 Document functions I have no real intention of implementing but would love to see in `ggplot2` or some extension.
 
 ## Geoms
+
+### geom_sf_density
+
+2D-density for `sfc` `POINT` objects.  Output can be one of point density or contoured lines.
+
+```r
+# Data has units of [m] (meter)
+data %>%
+  ggplot() +
+  geom_sf_density(aes(fill = stat(level)), 
+                  grid.cell = c(1e3, 1e3),
+                  geom = "polygon", 
+                  contour = FALSE) +
+  scale_fill_viridis()
+```
+
+### geom_sf_binned
+
+Bin counts for `sfc` `POINT` objects.
 
 ### geom_sf_krige
 
